@@ -8,13 +8,16 @@ except ImportError:
     from distutils.core import setup
 
 # TODO change verison
-VERSION = '0.0.1'
+VERSION = '0.0.4'
 
 name = 'webassets_ng_annotate'
-with open('README.md') as readme_file:
-    readme = readme_file.read()
+with open('./webassets_ng_annotate.py') as f:
+    readme = f.read().split("'''")[1].strip()
+
 
 if sys.argv[-1] == 'publish':
+    with open('README.md', 'wt') as f:
+        f.write(readme)
     if not doctest.testfile('README.md', verbose=True).failed:
         os.system('python setup.py sdist upload')
         sys.exit(0)
