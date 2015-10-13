@@ -21,7 +21,7 @@ if sys.argv[-1] == 'publish':
 
 setup(**{
     'name': name,
-    'url': 'https://github.com/imbolc/%s' % name,
+    'url': 'https://github.com/imbolc/%s' % name.replace('_', '-'),
     'version': VERSION,
     'description': readme.split('===\n')[1].strip().split('\n\n')[0],
     'long_description': readme,
